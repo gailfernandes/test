@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <!-- Include Leaflet CSS and JS from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        /* ... Your existing styles ... */
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="websiteName">INVENTORY SYSTEM</div>
+        <input type="text" id="searchInput" placeholder="Search for a product">
+        <button id="searchButton">Search</button>
+    </nav>
+    <div id="map"></div>
+    <script>
+        // Your existing JavaScript code...
+        
+        var searchInput = document.getElementById('searchInput');
+        var searchButton = document.getElementById('searchButton');
+
+        searchButton.onclick = function () {
+            var searchTerm = searchInput.value;
+            
+            // Perform search logic and display results on the map
+            // This involves making a request to your backend API
+            // and handling the response to show nearby shops with the searched product.
+            // This part will depend on your backend implementation.
+            
+            // For demonstration purposes, let's assume you have an array of shops with product data:
+            var nearbyShops = [
+                { name: 'Shop A', location: [37.7749, -122.4194], products: ['Product1', 'Product2'] },
+                { name: 'Shop B', location: [37.7749, -122.4094], products: ['Product2', 'Product3'] },
+                // ... more shop data ...
+            ];
+
+            // Initialize the map (similar to your existing code)
+            var mymap = L.map('map').setView([0, 0], 2);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(mymap);
+
+            // Display nearby shops on the map
+            nearbyShops.forEach(function (shop) {
+                L.marker(shop.location)
+                    .addTo(mymap)
+                    .bindPopup(`<b>${shop.name}</b><br>${shop.products.join(', ')}`)
+                    .openPopup();
+            });
+        };
+    </script>
+</body>
+</html>
