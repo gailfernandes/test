@@ -149,7 +149,7 @@
             <form class="login-form">
                 <input type="text" placeholder="Username" required>
                 <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
+                <button type="submit" id="loginSubmitBtn">Login</button>
                 <p>Don't have an account? <a href="#" id="showRegisterPopup">Register</a></p>
             </form>
         </div>
@@ -212,6 +212,27 @@
         closePopup('loginPopup');
         showPopup('registerPopup');
     };
+    // Your existing JavaScript code
+
+// Function to handle login form submission
+function handleLoginFormSubmit() {
+    // Your existing login form logic
+
+    // Redirect to a different page
+    window.location.href = 'afterlogin.html'; // Replace 'your_target_page.html' with the actual page URL
+}
+
+// Get the login submit button element
+var loginSubmitBtn = document.getElementById('loginSubmitBtn');
+
+// Add a click event listener to the login submit button
+loginSubmitBtn.onclick = function () {
+    // Call the function to handle login form submission
+    handleLoginFormSubmit();
+};
+
+// Your existing JavaScript code continues...
+
 
     // Register form validation
     var registerForm = document.querySelector('.register-form');
