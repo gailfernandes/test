@@ -1,2 +1,2 @@
-only home page without login is ready
+only home page without login is blaahhhh
 ORDER REQUEST NOT AVAIBLABE
